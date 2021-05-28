@@ -1,10 +1,10 @@
 package lru
 
 import (
-"container/list"
+	"container/list"
 )
 
-// Cache is a LRU cache. It is not safe for concurrent access.
+// Cache is a LRU gocache. It is not safe for concurrent access.
 type Cache struct {
 	maxBytes int64
 	nbytes   int64
@@ -58,7 +58,7 @@ func (c *Cache) RemoveOldest() {
 	}
 }
 
-// Add adds a value to the cache.
+// Add adds a value to the gocache.
 func (c *Cache) Add(key string, value Value) {
 	if ele, ok := c.cache[key]; ok {
 		c.ll.MoveToFront(ele)
@@ -76,7 +76,7 @@ func (c *Cache) Add(key string, value Value) {
 	}
 }
 
-// Len the number of cache entries
+// Len the number of gocache entries
 func (c *Cache) Len() int {
 	return c.ll.Len()
 }

@@ -1,4 +1,4 @@
-package gogocache
+package gocache
 
 import (
 	"lru"
@@ -33,4 +33,3 @@ func (c *cache) get(key string) (value ByteView, ok bool) {
 
 	return
 }
-
